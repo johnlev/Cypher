@@ -184,43 +184,53 @@
     
 }
 - (IBAction)showActionsheetButton:(id)sender{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email This Message", @"Text Message"/*,@"Share this app"*/, nil];
-    [actionSheet showInView:self.view];
+    NSArray *activityItems = @[label.text];
+    NSArray *applicationItems = [[NSArray alloc] initWithObjects:/*UIActivityTypePostToFacebook, UIActivityTypePostToTwitter, UIActivityTypePostToWeibo, UIActivityTypeMessage, UIActivityTypeMail, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAssignToContact, UIActivityTypeSaveToCameraRoll, */nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:applicationItems];
+    activityViewController.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact];
+    [self presentViewController:activityViewController animated:YES completion:NULL];
 }
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if (buttonIndex == 0)
-    {
-        if ([MFMailComposeViewController canSendMail]) {
-            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-            controller.mailComposeDelegate = self;
-            [controller setSubject:@"My message"];
-            [controller setMessageBody:[NSString stringWithFormat:@"%@", label.text] isHTML:NO];
-            if (controller) [self presentModalViewController:controller animated:YES];
-        } else {
-            // Handle the error
-        }
-    }
-    
-    if(buttonIndex == 1)
-    {
-        NSArray *activityItems = @[@"Hello",[UIImage imageNamed:@"someimage"]];
-        UIActivityViewController *activityVeiwController = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
-        activityVeiwController.excludedActivityTypes = @[UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePrint ];
-        [self presentViewController:activityVeiwController animated:YES completion:NULL];
-    }
-    if(buttonIndex == 2){
-        if ([MFMailComposeViewController canSendMail]) {
-            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
-            controller.mailComposeDelegate = self;
-            [controller setSubject:@"Check out this app!"];
-            [controller setMessageBody:@"Check out this app Cypher!\n" isHTML:NO];
-            if (controller) [self presentModalViewController:controller animated:YES];
-        } else {
-            // Handle the error
-        }
-    }
-     
-}
+
+//- (IBAction)showActionsheetButton:(id)sender{
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Email This Message", @"Text Message"/*,@"Share this app"*/, nil];
+//    [actionSheet showInView:self.view];
+//}
+//-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+//    if (buttonIndex == 0)
+//    {
+//        if ([MFMailComposeViewController canSendMail]) {
+//            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+//            controller.mailComposeDelegate = self;
+//            [controller setSubject:@"My message"];
+//            [controller setMessageBody:[NSString stringWithFormat:@"%@", label.text] isHTML:NO];
+//            if (controller) [self presentModalViewController:controller animated:YES];
+//        } else {
+//            // Handle the error
+//        }
+//    }
+//    
+//    if(buttonIndex == 1)
+//    {
+//        NSArray *activityItems = @[@"Hello",[UIImage imageNamed:@"someimage"]];
+//        UIActivityViewController *activityVeiwController = [[UIActivityViewController alloc]initWithActivityItems:activityItems applicationActivities:nil];
+//        activityVeiwController.excludedActivityTypes = @[UIActivityTypeMessage,UIActivityTypePostToFacebook,UIActivityTypePrint ];
+//        [self presentViewController:activityVeiwController animated:YES completion:NULL];
+//    }
+//    if(buttonIndex == 2){
+//        if ([MFMailComposeViewController canSendMail]) {
+//            MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+//            controller.mailComposeDelegate = self;
+//            [controller setSubject:@"Check out this app!"];
+//            [controller setMessageBody:@"Check out this app Cypher!\n" isHTML:NO];
+//            if (controller) [self presentModalViewController:controller animated:YES];
+//        } else {
+//            // Handle the error
+//        }
+//    }
+//     
+//}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
