@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C3012" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tZe-Fz-IRs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tZe-Fz-IRs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -310,30 +310,6 @@
     <resources>
         <image name="Border.gif" width="720" height="880"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clear:"/>
-                <relationship kind="action" name="clearAndExit:"/>
-                <relationship kind="action" name="clicked:"/>
-                <relationship kind="action" name="copyr:"/>
-                <relationship kind="action" name="hide:"/>
-                <relationship kind="action" name="paster:"/>
-                <relationship kind="action" name="showActionsheetButton:"/>
-                <relationship kind="outlet" name="button" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="choice" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="clear" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="encrypt" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="key" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="label" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="passes" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
