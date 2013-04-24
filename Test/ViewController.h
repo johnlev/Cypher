@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+
+
 @property (nonatomic,retain) IBOutlet UIButton *button;
 @property (nonatomic,retain) IBOutlet UITextView *encrypt;
 @property (nonatomic,retain) IBOutlet UITextView *label;
