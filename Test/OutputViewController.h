@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Kotz Productions. All rights reserved.
 //
 
-#import "InputViewController.h"
+#import "MainInputViewController.h"
 #import <UIKit/UIKit.h>
 
 @interface OutputViewController : MainInputViewController

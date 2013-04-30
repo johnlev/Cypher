@@ -1,23 +1,22 @@
 //
-//  ViewControllerNew.h
+//  InputViewController.h
 //  Cypher1
 //
 //  Created by John Kotz on 3/28/13.
 //  Copyright (c) 2013 Kotz Productions. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+
 #import <UIKit/UIKit.h>
 
-@interface  MainInputViewController : InputViewController{
-    NSString *label;
+@interface InputViewController : UIViewController{
+    InputViewController* controller;
 }
 
-@property (nonatomic,retain) IBOutlet UITextView *encryptTextVeiw;
-@property int *data;
--(IBAction)clicked:(id)sender;
--(IBAction)paster:(id)sender;
--(IBAction)clear:(id)sender;
--(IBAction)gotoSettings:(id)sender;
+@property (nonatomic,retain,readwrite) NSArray *data;
+@property int myInt;
+@property (nonatomic,retain) IBOutlet UISegmentedControl *passesSegmented;
+@property (nonatomic,retain) IBOutlet UISegmentedControl *choiceSegmented;
+@property (nonatomic,retain) IBOutlet UITextField *keyTextFeild;
 
 @end

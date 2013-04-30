@@ -294,39 +294,6 @@
     <resources>
         <image name="Outline.png" width="300" height="291"/>
     </resources>
-    <classes>
-        <class className="InputView" superclassName="SettingsView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InputView.h"/>
-            <relationships>
-                <relationship kind="action" name="clear:"/>
-                <relationship kind="action" name="clicked:"/>
-                <relationship kind="action" name="gotoSettings:"/>
-                <relationship kind="action" name="paster:"/>
-                <relationship kind="outlet" name="encryptTextVeiw" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="OutputViewController" superclassName="InputView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OutputViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backToSettings:"/>
-                <relationship kind="action" name="copyButton:"/>
-                <relationship kind="action" name="showActionsheetButton:"/>
-                <relationship kind="action" name="showText:"/>
-                <relationship kind="outlet" name="labelTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="SettingsView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="choiceSegmented" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="keyTextFeild" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passesSegmented" candidateClass="UISegmentedControl"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
