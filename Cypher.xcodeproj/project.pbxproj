@@ -10,6 +10,7 @@
 		520BB50F16FBCF88007664D7 /* Border.gif in Resources */ = {isa = PBXBuildFile; fileRef = 520BB50E16FBCF88007664D7 /* Border.gif */; };
 		520BB51316FBD0EC007664D7 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 520BB51216FBD0EC007664D7 /* Background.png */; };
 		5214BB581705F2D5009C69C6 /* OutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5214BB571705F2D5009C69C6 /* OutputViewController.m */; };
+		523C01BF173C33810022D309 /* transfer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 523C01BE173C33810022D309 /* transfer.plist */; };
 		5274E35316FBBC3E001E12E9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5274E35216FBBC3E001E12E9 /* UIKit.framework */; };
 		5274E35516FBBC3E001E12E9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5274E35416FBBC3E001E12E9 /* Foundation.framework */; };
 		5274E35716FBBC3E001E12E9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5274E35616FBBC3E001E12E9 /* CoreGraphics.framework */; };
@@ -53,6 +54,7 @@
 		520BB51216FBD0EC007664D7 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		5214BB561705F2D5009C69C6 /* OutputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputViewController.h; sourceTree = "<group>"; };
 		5214BB571705F2D5009C69C6 /* OutputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputViewController.m; sourceTree = "<group>"; };
+		523C01BE173C33810022D309 /* transfer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = transfer.plist; sourceTree = "<group>"; };
 		5274E34F16FBBC3E001E12E9 /* Cypher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cypher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5274E35216FBBC3E001E12E9 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5274E35416FBBC3E001E12E9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +117,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		523C01C0173C33D70022D309 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5214BB561705F2D5009C69C6 /* OutputViewController.h */,
+				5214BB571705F2D5009C69C6 /* OutputViewController.m */,
+				527602AF1704D6E60012EA63 /* MainInputViewController.h */,
+				527602B01704D6E60012EA63 /* MainInputViewController.m */,
+				527602B21704D8B90012EA63 /* InputViewController.h */,
+				527602B31704D8B90012EA63 /* InputViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		5274E34616FBBC3E001E12E9 = {
 			isa = PBXGroup;
 			children = (
@@ -154,14 +169,8 @@
 				5274E36116FBBC3E001E12E9 /* AppDelegate.h */,
 				5274E36216FBBC3E001E12E9 /* AppDelegate.m */,
 				5274E36A16FBBC3E001E12E9 /* MainStoryboard.storyboard */,
-				5214BB561705F2D5009C69C6 /* OutputViewController.h */,
-				5214BB571705F2D5009C69C6 /* OutputViewController.m */,
-				527602B21704D8B90012EA63 /* InputViewController.h */,
-				527602B31704D8B90012EA63 /* InputViewController.m */,
-				527602AF1704D6E60012EA63 /* MainInputViewController.h */,
-				527602B01704D6E60012EA63 /* MainInputViewController.m */,
-				5274E36D16FBBC3E001E12E9 /* ViewController.h */,
-				5274E36E16FBBC3E001E12E9 /* ViewController.m */,
+				523C01BE173C33810022D309 /* transfer.plist */,
+				523C01C0173C33D70022D309 /* View Controllers */,
 				5274E35916FBBC3E001E12E9 /* Supporting Files */,
 			);
 			path = Test;
@@ -178,6 +187,8 @@
 				5274E39116FBBD50001E12E9 /* Default.png */,
 				5274E35A16FBBC3E001E12E9 /* Cypher-Info.plist */,
 				5274E35B16FBBC3E001E12E9 /* InfoPlist.strings */,
+				5274E36D16FBBC3E001E12E9 /* ViewController.h */,
+				5274E36E16FBBC3E001E12E9 /* ViewController.m */,
 				5274E35E16FBBC3E001E12E9 /* main.m */,
 				5274E36016FBBC3E001E12E9 /* Cypher-Prefix.pch */,
 				5274E36416FBBC3E001E12E9 /* Default.png */,
@@ -293,6 +304,7 @@
 				B3F84BA616FF865C008190CD /* 57.png in Resources */,
 				B3F84BA716FF865C008190CD /* 114.png in Resources */,
 				52E4452F170518A2005958A1 /* Outline.png in Resources */,
+				523C01BF173C33810022D309 /* transfer.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
