@@ -26,10 +26,6 @@
 -(IBAction)showText:(id)sender{
     labelTextView.text = label;
 }
-
--(IBAction)backToSettings:(id)sender{
-    [self dismissModalViewControllerAnimated:YES];;
-}
 -(IBAction)copyButton:(id)sender{
     [UIPasteboard generalPasteboard].string = labelTextView.text;
 }

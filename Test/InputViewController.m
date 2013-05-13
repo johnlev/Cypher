@@ -97,6 +97,21 @@
 
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSString *plistFolderPath = [[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"];
+    NSMutableDictionary *plistDict = [NSMutableDictionary dictionaryWithContentsOfFile:plistFolderPath];
+    NSLog(@"%@", plistDict);
+    
+    [plistDict setObject:[keyTextFeild.text intValue] forKey:@"key"];
+    [plistDict setObject:[NSNumber numberWithInt:choiceSegmented.selectedSegmentIndex] forKey:@"inOrOut"];
+    [plistDict setObject:[NSNumber numberWithInt:passesSegmented.selectedSegmentIndex] forKey:@"passes"];
+    
+    NSLog(@"%@ = %@ = %@", [plistDict objectForKey:@"key"], [plistDict objectForKey:@"inOrOut"], [plistDict objectForKey:@"passes"]);
+    
+    [plistDict writeToFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"] atomically: YES];
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

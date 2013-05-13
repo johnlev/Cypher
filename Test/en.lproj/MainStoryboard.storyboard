@@ -12,19 +12,19 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="WlH-wl-hc2" kind="relationship" relationship="rootViewController" id="zWV-pT-oIw"/>
+                        <segue destination="JrR-bA-UFn" kind="relationship" relationship="rootViewController" id="P1n-Hv-zmp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wld-Ip-w3g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-505" y="608"/>
+            <point key="canvasLocation" x="-311" y="940"/>
         </scene>
         <!--Main Input View Controller - MainInputViewController-->
         <scene sceneID="d4q-5a-gwS">
             <objects>
                 <viewController storyboardIdentifier="" title="MainInputViewController" id="JrR-bA-UFn" customClass="MainInputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O3M-yl-8M5" customClass="MainInputViewContoller">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="iDi-Pj-cdu">
@@ -99,6 +99,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Input" id="mjz-Pi-90f">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="GHM-ys-9s4">
+                            <connections>
+                                <action selector="gotoSettings:" destination="JrR-bA-UFn" id="HiM-Df-dNC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Go" style="done" id="3bR-5O-q2g">
                             <connections>
                                 <action selector="clicked:" destination="JrR-bA-UFn" id="elY-Ik-LD0"/>
@@ -107,8 +112,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="encryptTextVeiw" destination="jdG-gw-Eeh" id="SNj-p7-puV"/>
-                        <segue destination="WlH-wl-hc2" kind="push" identifier="AlertViewSegue" id="jOx-cw-ue8"/>
-                        <segue destination="pMU-wD-U4Z" kind="push" identifier="Go" id="UBS-9a-igN"/>
+                        <segue destination="WlH-wl-hc2" kind="push" identifier="settings" id="804-9A-WCZ"/>
+                        <segue destination="pMU-wD-U4Z" kind="push" identifier="Go" id="4KP-jJ-0Ui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULy-wm-uNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -120,7 +125,7 @@
             <objects>
                 <viewController title="OutputViewController" id="pMU-wD-U4Z" customClass="OutputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9cC-eg-781">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="c9q-sR-9Ts">
@@ -206,7 +211,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="labelTextView" destination="gGa-Vs-8NU" id="Bu8-dn-cml"/>
-                        <segue destination="WlH-wl-hc2" kind="push" identifier="Backfromgo" id="xA8-qg-CpZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUN-sA-1u6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -218,7 +222,7 @@
             <objects>
                 <viewController storyboardIdentifier="" title="InputViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WlH-wl-hc2" customClass="InputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lkK-7G-pf6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0ur-It-QYQ">
@@ -227,7 +231,7 @@
                                     <segment title="De-encrypt"/>
                                 </segments>
                             </segmentedControl>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRh-9g-Y7x">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRh-9g-Y7x">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="76" id="AVS-av-ExT"/>
                                     <constraint firstAttribute="height" constant="31" id="jrX-ug-OAE"/>
@@ -263,28 +267,21 @@
                             <constraint firstItem="0ur-It-QYQ" firstAttribute="centerX" secondItem="lkK-7G-pf6" secondAttribute="centerX" type="default" id="0T8-AE-adg"/>
                             <constraint firstItem="ZHL-Nu-hTq" firstAttribute="top" secondItem="lkK-7G-pf6" secondAttribute="top" constant="95" id="359-mr-jhL"/>
                             <constraint firstAttribute="trailing" secondItem="ZDn-bg-Foy" secondAttribute="trailing" constant="65" id="4Fw-Gd-bad"/>
+                            <constraint firstItem="rRh-9g-Y7x" firstAttribute="leading" secondItem="lkK-7G-pf6" secondAttribute="leading" constant="67" id="Dhf-tj-Ufs"/>
                             <constraint firstItem="0ur-It-QYQ" firstAttribute="top" secondItem="lkK-7G-pf6" secondAttribute="top" constant="28" id="I4A-AI-kjf"/>
                             <constraint firstItem="ZDn-bg-Foy" firstAttribute="top" secondItem="Wh2-gv-OAO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Qom-ae-7B9"/>
-                            <constraint firstItem="rRh-9g-Y7x" firstAttribute="leading" secondItem="lkK-7G-pf6" secondAttribute="leading" constant="67" id="UfI-P2-nyD"/>
                             <constraint firstItem="ZDn-bg-Foy" firstAttribute="centerX" secondItem="Wh2-gv-OAO" secondAttribute="centerX" type="default" id="cTE-Cb-Rpv"/>
-                            <constraint firstItem="rRh-9g-Y7x" firstAttribute="centerX" secondItem="ZHL-Nu-hTq" secondAttribute="centerX" type="default" id="pG3-kh-wIt"/>
+                            <constraint firstItem="rRh-9g-Y7x" firstAttribute="centerX" secondItem="ZHL-Nu-hTq" secondAttribute="centerX" type="default" id="jhg-Ns-CWq"/>
                             <constraint firstItem="ZHL-Nu-hTq" firstAttribute="baseline" secondItem="Wh2-gv-OAO" secondAttribute="baseline" type="default" id="q57-cI-MKQ"/>
                             <constraint firstItem="rRh-9g-Y7x" firstAttribute="bottom" secondItem="ZDn-bg-Foy" secondAttribute="bottom" type="default" id="qMK-E2-LJh"/>
                             <constraint firstItem="rRh-9g-Y7x" firstAttribute="baseline" secondItem="ZDn-bg-Foy" secondAttribute="baseline" type="default" id="xoL-Iy-aNd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="8fO-lK-NlA">
-                        <barButtonItem key="rightBarButtonItem" title="Next" style="done" id="euc-YR-5jC">
-                            <connections>
-                                <action selector="back:" destination="WlH-wl-hc2" id="a7M-11-MhU"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="8fO-lK-NlA"/>
                     <connections>
                         <outlet property="choiceSegmented" destination="0ur-It-QYQ" id="24w-wq-vGh"/>
                         <outlet property="keyTextFeild" destination="rRh-9g-Y7x" id="lBJ-dh-sK4"/>
                         <outlet property="passesSegmented" destination="ZDn-bg-Foy" id="6Vu-oh-gR6"/>
-                        <segue destination="JrR-bA-UFn" kind="push" identifier="Hello" id="fyB-5I-hcT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C8F-e5-fOD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -320,7 +317,6 @@
         <class className="OutputViewController" superclassName="MainInputViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/OutputViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backToSettings:"/>
                 <relationship kind="action" name="copyButton:"/>
                 <relationship kind="action" name="showActionsheetButton:"/>
                 <relationship kind="action" name="showText:"/>
@@ -333,7 +329,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="xA8-qg-CpZ"/>
-    </inferredMetricsTieBreakers>
 </document>

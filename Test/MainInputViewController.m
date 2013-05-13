@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Kotz Productions. All rights reserved.
 //
 
-#import "InputViewController.h"
 #import "MainInputViewController.h"
 #import "AppDelegate.h"
 
@@ -18,10 +17,11 @@
 @synthesize encryptTextVeiw;
 
 -(IBAction)gotoSettings:(id)sender{
-    [self dismissModalViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"settings" sender:self];
 }
 -(IBAction)clicked:(id)sender{
-    MainInputViewController* controller = [[MainInputViewController alloc]initWithNibName:@"MainInputViewController" bundle:nil];
+    NSString *plistFolderPath = [[NSBundle mainBundle] pathForResource:@"Selected" ofType:@"plist"];
+    NSMutableDictionary *plistDict = [NSMutableDictionary dictionaryWithContentsOfFile:plistFolderPath];
     NSString *encrypt;
     encrypt = encryptTextVeiw.text;
     NSUInteger length = [encrypt length];
@@ -30,11 +30,13 @@
     int passed = 0;
     [self.view endEditing:YES];
     NSString* string = encrypt;
-    NSLog(@"%@",controller.data);
-    int passes = [[UIPasteboard generalPasteboard].string characterAtIndex:2];
-    int key = [[UIPasteboard generalPasteboard].string characterAtIndex:0];
-    int choice = [[UIPasteboard generalPasteboard].string characterAtIndex:1];
-    NSLog(@"%d : %d : %d", key, choice, passes);
+    int passes = 2;
+    
+    
+    
+    int key = 1;
+    int choice = 2;
+    NSLog(@"%@ : %@ : %@", [plistDict objectForKey:@"key"], [plistDict objectForKey:@"inOrOut"],[plistDict objectForKey:@"passes"]);
     //encrypt
     while (passed < passes + 1 && choice == 0) {
         char *alphabet1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .?!:;'<>1234567890,/";

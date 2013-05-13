@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 
 @interface InputViewController : UIViewController{
-    InputViewController* controller;
 }
 
 @property (nonatomic,retain,readwrite) NSArray *data;

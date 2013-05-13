@@ -13,7 +13,6 @@
 
 
 @property (nonatomic,retain) IBOutlet UITextView *labelTextView;
--(IBAction)backToSettings:(id)sender;
 -(IBAction)copyButton:(id)sender;
 -(IBAction)showActionsheetButton:(id)sender;
 -(IBAction)showText:(id)sender;
