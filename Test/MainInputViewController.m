@@ -30,13 +30,12 @@
     int passed = 0;
     [self.view endEditing:YES];
     NSString* string = encrypt;
-    int passes = 2;
+    int passes = [[NSUserDefaults standardUserDefaults] objectForKey:@"passes"];
+    int key = [[NSUserDefaults standardUserDefaults] objectForKey:@"key"];
+    int choice = [[NSUserDefaults standardUserDefaults] objectForKey:@"inOrOut"];
     
     
-    
-    int key = 1;
-    int choice = 2;
-    NSLog(@"%@ : %@ : %@", [plistDict objectForKey:@"key"], [plistDict objectForKey:@"inOrOut"],[plistDict objectForKey:@"passes"]);
+    NSLog(@"%@ : %@ : %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"inOrOut"], [[NSUserDefaults standardUserDefaults] objectForKey:@"passes"], [[NSUserDefaults standardUserDefaults] objectForKey:@"key"]);
     //encrypt
     while (passed < passes + 1 && choice == 0) {
         char *alphabet1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .?!:;'<>1234567890,/";

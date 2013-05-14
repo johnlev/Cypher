@@ -18,4 +18,5 @@
 @property (nonatomic,retain) IBOutlet UISegmentedControl *choiceSegmented;
 @property (nonatomic,retain) IBOutlet UITextField *keyTextFeild;
 
+
 @end

@@ -9,7 +9,7 @@
 #import "InputViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface  MainInputViewController : InputViewController{
+@interface  MainInputViewController : UIViewController{
     NSString *label;
 }
 

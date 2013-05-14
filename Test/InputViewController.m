@@ -102,11 +102,11 @@
     NSMutableDictionary *plistDict = [NSMutableDictionary dictionaryWithContentsOfFile:plistFolderPath];
     NSLog(@"%@", plistDict);
     
-    [plistDict setObject:[keyTextFeild.text intValue] forKey:@"key"];
+    [plistDict setObject:[NSNumber numberWithInteger:[keyTextFeild.text intValue]] forKey:@"key"];
     [plistDict setObject:[NSNumber numberWithInt:choiceSegmented.selectedSegmentIndex] forKey:@"inOrOut"];
     [plistDict setObject:[NSNumber numberWithInt:passesSegmented.selectedSegmentIndex] forKey:@"passes"];
     
-    NSLog(@"%@ = %@ = %@", [plistDict objectForKey:@"key"], [plistDict objectForKey:@"inOrOut"], [plistDict objectForKey:@"passes"]);
+    NSLog(@"%@ : %@ : %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"inOrOut"], [[NSUserDefaults standardUserDefaults] objectForKey:@"passes"], [[NSUserDefaults standardUserDefaults] objectForKey:@"key"]);
     
     [plistDict writeToFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"] atomically: YES];
 

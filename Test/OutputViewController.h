@@ -9,7 +9,7 @@
 #import "MainInputViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface OutputViewController : MainInputViewController
+@interface OutputViewController : UIViewController
 
 
 @property (nonatomic,retain) IBOutlet UITextView *labelTextView;

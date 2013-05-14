@@ -24,7 +24,7 @@
 }
 
 -(IBAction)showText:(id)sender{
-    labelTextView.text = label;
+    //labelTextView.text = label;
 }
 -(IBAction)copyButton:(id)sender{
     [UIPasteboard generalPasteboard].string = labelTextView.text;
@@ -40,7 +40,7 @@
 
 - (void)viewDidLoad
 {
-    labelTextView.text = label;
+    //labelTextView.text = label;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
