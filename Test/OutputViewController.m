@@ -43,6 +43,8 @@
     //labelTextView.text = label;
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSMutableDictionary *plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"transfer" ofType:@"plist"]];
+    labelTextView.text = [plistDict objectForKey:@"text"];
 }
 
 - (void)didReceiveMemoryWarning

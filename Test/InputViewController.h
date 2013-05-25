@@ -12,11 +12,10 @@
 @interface InputViewController : UIViewController{
 }
 
-@property (nonatomic,retain,readwrite) NSArray *data;
 @property int myInt;
 @property (nonatomic,retain) IBOutlet UISegmentedControl *passesSegmented;
-@property (nonatomic,retain) IBOutlet UISegmentedControl *choiceSegmented;
 @property (nonatomic,retain) IBOutlet UITextField *keyTextFeild;
+-(IBAction)save:(id)sender;
 
 
 @end

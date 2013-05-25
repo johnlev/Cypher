@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>key</key>
-	<integer>1234</integer>
+	<string>11</string>
 	<key>passes</key>
-	<integer>1</integer>
+	<string>1</string>
 	<key>inOrOut</key>
-	<integer>2</integer>
+	<string>0</string>
 	<key>text</key>
 	<string></string>
 </dict>

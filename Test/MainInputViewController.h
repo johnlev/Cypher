@@ -14,6 +14,8 @@
 }
 
 @property (nonatomic,retain) IBOutlet UITextView *encryptTextVeiw;
+@property (nonatomic,retain) IBOutlet UISegmentedControl *choiceSeg;
+@property (nonatomic,retain) IBOutlet UIScrollView *scroll;
 @property int *data;
 -(IBAction)clicked:(id)sender;
 -(IBAction)paster:(id)sender;
