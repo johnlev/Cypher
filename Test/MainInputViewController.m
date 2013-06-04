@@ -48,7 +48,6 @@
         int s = 0;
         int x = 0;
         int z = 0;
-        int a = key;
         int lengthAlpha = strlen(alphabet1);
         char alphabet2[lengthAlpha];
         int array[lengthAlpha];
@@ -61,24 +60,27 @@
             }
         }
         x=0;
-        int y = 0;
         i = 0;
-        srand(a);
-        while (x < lengthAlpha) {
-            z = rand()%(lengthAlpha - 1);
+        while (i < lengthAlpha) {
+            alphabet2[i] = 0;
+            i++;
+        }
+        srand(key);
+        while (alphabet1[x] != '\0') {
+            z = rand()%(lengthAlpha - 1) + 1;
             // Check the random place in the array for the presence of another char
-            while (i < lengthAlpha && x < lengthAlpha) {
-                if (z == array[i]) {
-                    z = (z + 1) % (lengthAlpha + 1);
+            while (i < lengthAlpha +1) {
+                if (alphabet1[z] == alphabet2[i]) {
+                    z = (z + 1) % lengthAlpha;
                     i=-1;
                 }
                 i++;
-                y++;
             }
             i=0;
             // Puts it in the new alphabet
-            alphabet2[z] = alphabet1[x];
-            array[x] = z;
+            //NSLog(@"%s", alphabet2);
+            alphabet2[x] = alphabet1[z];
+            array[z] = z;
             x++;
         }
         i=0;
@@ -111,6 +113,7 @@
     //Decrypt
     if (choice == 1) {
         NSLog(@"De-encrypting");
+        passed = 0;
     }
     while (passed < passes && choice == 1) {
         char *alphabet1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .?!:;'<>1234567890,/";
@@ -118,11 +121,8 @@
         int s = 0;
         int x = 0;
         int z = 0;
-        int a = key;
         int lengthAlpha = strlen(alphabet1);
         char alphabet2[lengthAlpha];
-        int array[lengthAlpha];
-        int inOrOut = 2;
         NSUInteger length = [encrypt length];
         unichar input[length];
         unichar output[length];
@@ -130,49 +130,30 @@
             input[i] = [string characterAtIndex:i];
         }
         x=0;
-        int y = 0;
         i = 0;
-        srand(a);
-        while (x < lengthAlpha) {
-            z = rand()%(lengthAlpha - 1);
-            // Check the random place in the array for the presence of another char
-            while (i < lengthAlpha && x < lengthAlpha) {
-                if (z == array[i]) {
-                    z = (z + 1) % (lengthAlpha + 1);
-                    i=-1;
-                }
-                i++;
-                y++;
-            }
-            i=0;
-            // Puts it in the new alphabet
-            alphabet2[z] = alphabet1[x];
-            array[x] = z;
-            x++;
-        }
-        i=0;
-        while (array[i] < lengthAlpha) {
-            array[i] = 0;
+        while (i < lengthAlpha) {
+            alphabet2[i] = 0;
             i++;
         }
         i=0;
-        //Encode it
-        //        while (input[i] != '\0' && inOrOut == 1) {
-        //            while (TRUE) {
-        //                if (input[i] == alphabet1[s]) {
-        //                    //sets the origanal letter to be the encrypted letter
-        //                    output[i] = alphabet2[s];
-        //                    break;
-        //                } else if (alphabet1[s] == '\0') {
-        //                    //if an unknown character is inputted, it will use this: _
-        //                    output[i] = '-';
-        //                    break;
-        //                }
-        //                s++;
-        //            }
-        //            i++;
-        //            s=0;
-        //        }
+        srand(key);
+        while (alphabet1[x] != '\0') {
+            z = rand()%(lengthAlpha - 1) +1;
+            // Check the random place in the array for the presence of another char
+            while (i < lengthAlpha) {
+                if (alphabet1[z] == alphabet2[i]) {
+                    z = (z + 1) % lengthAlpha;
+                    i=-1;
+                }
+                i++;
+            }
+            i=0;
+            // Puts it in the new alphabet
+            //NSLog(@"%s", alphabet2);
+            alphabet2[x] = alphabet1[z];
+            x++;
+        }
+        i=0;
         while (input[i] != '\0') {
             while (TRUE) {
                 if (input[i] == alphabet2[s]) {
@@ -193,6 +174,8 @@
         passed++;
     }
     NSLog(@"Passed = %d",passed);
+    printf("===============Done=================\n");
+    NSLog(@"Output = %@", string);
     
     
     label = string;
