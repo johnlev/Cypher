@@ -23,17 +23,19 @@
     NSString *path = [(NSString *) [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"transfer.plist"];
     printf("\n\n------------Preparing-------------\n");
     NSMutableDictionary *plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-    NSString *encrypt;
-    encrypt = encryptTextVeiw.text;
-    NSUInteger length = [encrypt length];
+    NSUInteger length = [encryptTextVeiw.text length];
     unichar input[length];
     unichar output[length];
     int passed = 0;
     [self.view endEditing:YES];
-    NSString* string = encrypt;
+    NSString* string = encryptTextVeiw.text;
+    
     int passes = [[plistDict objectForKey:@"passes"]intValue];
     int key = [[plistDict objectForKey:@"key"]intValue];
     int choice = choiceSeg.selectedSegmentIndex;
+    if ([plistDict objectForKey:@"defaultSettings"]) {
+        key = 11;
+    }
     
     NSLog(@"Passes = %d", passes);
     NSLog(@"Input = %@", string);
@@ -44,6 +46,8 @@
         NSLog(@"Encrypting");
     }
     while (passed < passes && choice == 0) {
+        
+        //Create variables
         char *alphabet1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .?!:;'<>1234567890,/";
         int i = 0;
         int s = 0;
@@ -51,26 +55,34 @@
         int z = 0;
         int lengthAlpha = strlen(alphabet1);
         char alphabet2[lengthAlpha];
-        int array[lengthAlpha];
+        
+        //convert
         for (unsigned int i = 0; i < length; i++) {
             input[i] = [string characterAtIndex:i];
         }
-        for (int b=0; b<[encrypt length];b++) {
+        
+        //replace new lines with spaces
+        for (int b=0; b<[string length];b++) {
             if (input[b] == '\n') {
                 input[b] = ' ';
             }
         }
         x=0;
         i = 0;
+        
+        //Clear Alphabet just in case
         while (i < lengthAlpha) {
             alphabet2[i] = 0;
             i++;
         }
+        i=0;
+        
+        //Write random alphabet
         srand(key);
         while (alphabet1[x] != '\0') {
-            z = rand()%(lengthAlpha - 1) + 1;
+            z = rand()%(lengthAlpha - 1) +1;
             // Check the random place in the array for the presence of another char
-            while (i < lengthAlpha +1) {
+            while (i < lengthAlpha) {
                 if (alphabet1[z] == alphabet2[i]) {
                     z = (z + 1) % lengthAlpha;
                     i=-1;
@@ -78,23 +90,17 @@
                 i++;
             }
             i=0;
-            // Puts it in the new alphabet
-            //NSLog(@"%s", alphabet2);
+            // Write in the new alphabet
             alphabet2[x] = alphabet1[z];
-            array[z] = z;
             x++;
         }
         i=0;
-        while (array[i] < lengthAlpha) {
-            array[i] = 0;
-            i++;
-        }
-        i=0;
-        //Encode it
+        
+        //Translate
         while (input[i] != '\0') {
             while (TRUE) {
                 if (input[i] == alphabet1[s]) {
-                    //sets the origanal letter to be the encrypted letter
+                    //sets the encrypted letter to be the origanal letter
                     output[i] = alphabet2[s];
                     break;
                 } else if (alphabet1[s] == '\0') {
@@ -124,11 +130,13 @@
         int z = 0;
         int lengthAlpha = strlen(alphabet1);
         char alphabet2[lengthAlpha];
-        NSUInteger length = [encrypt length];
-        unichar input[length];
-        unichar output[length];
         for (unsigned int i = 0; i < length; i++) {
             input[i] = [string characterAtIndex:i];
+        }
+        for (int b=0; b<[string length];b++) {
+            if (input[b] == '\n') {
+                input[b] = ' ';
+            }
         }
         x=0;
         i = 0;

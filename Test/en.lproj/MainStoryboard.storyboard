@@ -163,9 +163,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Output:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRH-bR-JRm">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Output:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRH-bR-JRm">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="57" id="ae4-Ha-SCP"/>
+                                    <constraint firstAttribute="width" constant="106" id="4KY-LT-IHv"/>
                                     <constraint firstAttribute="height" constant="22" id="igO-xL-PFX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -193,14 +193,14 @@
                         <constraints>
                             <constraint firstItem="gGa-Vs-8NU" firstAttribute="top" secondItem="fRH-bR-JRm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0JF-tQ-ewx"/>
                             <constraint firstItem="c9q-sR-9Ts" firstAttribute="top" secondItem="9cC-eg-781" secondAttribute="top" constant="13" id="3P8-pG-Cq7"/>
-                            <constraint firstItem="fRH-bR-JRm" firstAttribute="centerX" secondItem="gGa-Vs-8NU" secondAttribute="centerX" type="default" id="88E-9K-mc2"/>
                             <constraint firstAttribute="trailing" secondItem="gGa-Vs-8NU" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="9Gr-Bx-goo"/>
                             <constraint firstItem="fRH-bR-JRm" firstAttribute="top" secondItem="9cC-eg-781" secondAttribute="top" constant="20" symbolic="YES" type="default" id="BRm-Ny-jpf"/>
                             <constraint firstAttribute="trailing" secondItem="5JG-iW-PHE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="J7y-6v-Cjz"/>
                             <constraint firstItem="fRH-bR-JRm" firstAttribute="baseline" secondItem="5JG-iW-PHE" secondAttribute="baseline" type="default" id="Jdx-3y-nPn"/>
                             <constraint firstItem="gGa-Vs-8NU" firstAttribute="leading" secondItem="9cC-eg-781" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dAO-TM-JGI"/>
+                            <constraint firstItem="c9q-sR-9Ts" firstAttribute="leading" secondItem="9cC-eg-781" secondAttribute="leading" constant="8" id="dmo-1a-ZwB"/>
                             <constraint firstItem="5JG-iW-PHE" firstAttribute="top" secondItem="9cC-eg-781" secondAttribute="top" constant="20" symbolic="YES" type="default" id="f3m-Uq-HhB"/>
-                            <constraint firstItem="fRH-bR-JRm" firstAttribute="centerX" secondItem="c9q-sR-9Ts" secondAttribute="centerX" type="default" id="ngx-i8-kUr"/>
+                            <constraint firstItem="gGa-Vs-8NU" firstAttribute="centerX" secondItem="fRH-bR-JRm" secondAttribute="centerX" type="default" id="oUS-H3-5Ap"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Output" id="vKF-4A-ope">
@@ -288,7 +288,6 @@
         <class className="InputViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InputViewController.h"/>
             <relationships>
-                <relationship kind="action" name="save:"/>
                 <relationship kind="outlet" name="keyTextFeild" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="passesSegmented" candidateClass="UISegmentedControl"/>
             </relationships>

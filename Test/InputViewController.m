@@ -40,19 +40,21 @@
     passes = [NSNumber numberWithInt:passesSegmented.selectedSegmentIndex + 1];
     
     NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"]];
+    NSMutableDictionary* plistDict2 = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"]];
     
-    [plistDict setValue:key forKey:@"key"];
+    if (key != nil) {
+        [plistDict setValue:key forKey:@"key"];
+    }
+    
     [plistDict setValue:passes forKey:@"passes"];
     
     NSString *path = [(NSString *) [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"transfer.plist"];
     
-    [plistDict writeToFile:path atomically:YES];
-    
-    if (![plistDict writeToFile:path atomically:YES]) {
-        NSLog(@"Could not write to plist files!s");
-    }else{
-        NSLog(@"Wrote to plist file");
+    if (plistDict != plistDict2) {
+        [plistDict setValue:NO forKey:@"defaultSettings"];
     }
+    
+    [plistDict writeToFile:path atomically:YES];
 }
 
 - (void)didReceiveMemoryWarning
