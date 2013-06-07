@@ -12,5 +12,7 @@
 	<string></string>
 	<key>try</key>
 	<string></string>
+	<key>defaultSettings</key>
+	<true/>
 </dict>
 </plist>

@@ -28,9 +28,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    //NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"]];
-    //keyTextFeild.text = [plistDict objectForKey:@"key"];
-    //passesSegmented.selectedSegmentIndex = [[plistDict objectForKey:@"passes"]intValue];
+    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"]];
+    
+    keyTextFeild.text = [NSString stringWithFormat:@"%@",[plistDict objectForKey:@"key"]];
+    passesSegmented.selectedSegmentIndex = [[plistDict objectForKey:@"passes"] intValue] -1;
 }
 
 -(IBAction)save:(id)sender{
