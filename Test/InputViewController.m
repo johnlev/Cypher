@@ -33,21 +33,26 @@
     keyTextFeild.text = [NSString stringWithFormat:@"%@",[plistDict objectForKey:@"key"]];
     passesSegmented.selectedSegmentIndex = [[plistDict objectForKey:@"passes"] intValue] -1;
 }
-
--(IBAction)save:(id)sender{
+-(void)viewWillDisappear:(BOOL)animated{
     NSNumber *key;
     NSNumber *passes;
     key = [NSNumber numberWithInt:[keyTextFeild.text intValue]];
     passes = [NSNumber numberWithInt:passesSegmented.selectedSegmentIndex + 1];
-    
-    NSLog(@"%@ - %@", key,passes);
     
     NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"]];
     
     [plistDict setValue:key forKey:@"key"];
     [plistDict setValue:passes forKey:@"passes"];
     
-    [plistDict writeToFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"] atomically: YES];
+    NSString *path = [(NSString *) [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"transfer.plist"];
+    
+    [plistDict writeToFile:path atomically:YES];
+    
+    if (![plistDict writeToFile:path atomically:YES]) {
+        NSLog(@"Could not write to plist files!s");
+    }else{
+        NSLog(@"Wrote to plist file");
+    }
 }
 
 - (void)didReceiveMemoryWarning

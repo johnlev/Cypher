@@ -270,13 +270,7 @@
                             <constraint firstItem="rRh-9g-Y7x" firstAttribute="baseline" secondItem="ZDn-bg-Foy" secondAttribute="baseline" type="default" id="xoL-Iy-aNd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="8fO-lK-NlA">
-                        <barButtonItem key="rightBarButtonItem" title="Save" style="done" id="6uG-eK-UDk">
-                            <connections>
-                                <action selector="save:" destination="WlH-wl-hc2" id="9BT-qv-2v9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="8fO-lK-NlA"/>
                     <connections>
                         <outlet property="keyTextFeild" destination="rRh-9g-Y7x" id="lBJ-dh-sK4"/>
                         <outlet property="passesSegmented" destination="ZDn-bg-Foy" id="6Vu-oh-gR6"/>

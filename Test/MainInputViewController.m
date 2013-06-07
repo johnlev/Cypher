@@ -20,8 +20,9 @@
     [self performSegueWithIdentifier:@"settings" sender:self];
 }
 -(IBAction)clicked:(id)sender{
+    NSString *path = [(NSString *) [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"transfer.plist"];
     printf("\n\n------------Preparing-------------\n");
-    NSMutableDictionary *plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"]];
+    NSMutableDictionary *plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     NSString *encrypt;
     encrypt = encryptTextVeiw.text;
     NSUInteger length = [encrypt length];
@@ -182,7 +183,7 @@
     
     [plistDict setValue:label forKey:@"text"];
     
-    [plistDict writeToFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"] atomically: YES];
+    [plistDict writeToFile:path atomically:YES];
     
     [self performSegueWithIdentifier:@"Go" sender:self];
 }

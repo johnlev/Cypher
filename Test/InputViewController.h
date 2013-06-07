@@ -15,7 +15,6 @@
 @property int myInt;
 @property (nonatomic,retain) IBOutlet UISegmentedControl *passesSegmented;
 @property (nonatomic,retain) IBOutlet UITextField *keyTextFeild;
--(IBAction)save:(id)sender;
 
 
 @end
