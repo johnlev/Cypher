@@ -29,18 +29,11 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ByU-2W-UEk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ByU-2W-UEk">
                                 <rect key="frame" x="0.0" y="-10" width="320" height="514"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Outline.png" translatesAutoresizingMaskIntoConstraints="NO" id="iDi-Pj-cdu">
-                                        <rect key="frame" x="9" y="56" width="303" height="296"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="296" id="Qjz-WH-ex5"/>
-                                            <constraint firstAttribute="width" constant="303" id="eZw-eV-XcH"/>
-                                        </constraints>
-                                    </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jdG-gw-Eeh">
-                                        <rect key="frame" x="22" y="107" width="280" height="244"/>
+                                        <rect key="frame" x="2" y="80" width="318" height="390"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="244" id="JNY-ER-Rr6"/>
@@ -50,7 +43,7 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                                     </textView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Type here:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yin-hn-wRF">
-                                        <rect key="frame" x="124" y="76" width="76" height="22"/>
+                                        <rect key="frame" x="124" y="56" width="76" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="1rS-am-B8G"/>
                                         </constraints>
@@ -59,7 +52,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKT-yO-fGh">
-                                        <rect key="frame" x="22" y="77" width="64" height="25"/>
+                                        <rect key="frame" x="20" y="56" width="64" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="64" id="lLL-9w-K0E"/>
                                             <constraint firstAttribute="height" constant="24" id="vUW-jS-1h2"/>
@@ -77,7 +70,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1l-Ss-Nta">
-                                        <rect key="frame" x="263" y="79" width="39" height="23"/>
+                                        <rect key="frame" x="261" y="58" width="39" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="dIo-7c-2go"/>
                                         </constraints>
@@ -93,28 +86,38 @@
                                             <action selector="paster:" destination="JrR-bA-UFn" eventType="touchUpInside" id="wJH-gr-DXG"/>
                                         </connections>
                                     </button>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0ur-It-QYQ">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0ur-It-QYQ">
                                         <rect key="frame" x="81" y="20" width="159" height="29"/>
                                         <segments>
                                             <segment title="Encrypt"/>
                                             <segment title="De-encrypt"/>
                                         </segments>
                                     </segmentedControl>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EnY-2U-x6s">
+                                        <rect key="frame" x="2" y="470" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem style="plain" systemItem="action" id="V6M-0Y-SZH"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="xy5-Oc-d4y"/>
+                                            <barButtonItem systemItem="add" id="9mH-kc-pTT"/>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="cZ4-Ng-LpA"/>
+                                            <barButtonItem title="info" id="MiO-Qa-KLt">
+                                                <connections>
+                                                    <segue destination="WlH-wl-hc2" kind="modal" modalTransitionStyle="partialCurl" id="E2F-VP-ltw"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jdG-gw-Eeh" firstAttribute="centerX" secondItem="yin-hn-wRF" secondAttribute="centerX" id="10F-w2-7y4"/>
                                     <constraint firstItem="y1l-Ss-Nta" firstAttribute="bottom" secondItem="qKT-yO-fGh" secondAttribute="bottom" id="3Sp-dH-cky"/>
-                                    <constraint firstItem="iDi-Pj-cdu" firstAttribute="top" secondItem="0ur-It-QYQ" secondAttribute="bottom" constant="8" symbolic="YES" id="5Fr-T1-67K"/>
-                                    <constraint firstItem="0ur-It-QYQ" firstAttribute="centerX" secondItem="iDi-Pj-cdu" secondAttribute="centerX" id="BAD-d6-BdH"/>
                                     <constraint firstItem="jdG-gw-Eeh" firstAttribute="leading" secondItem="qKT-yO-fGh" secondAttribute="leading" id="HVF-ME-WT4"/>
                                     <constraint firstItem="jdG-gw-Eeh" firstAttribute="top" secondItem="ByU-2W-UEk" secondAttribute="top" constant="107" id="HWk-W1-zRy"/>
                                     <constraint firstItem="qKT-yO-fGh" firstAttribute="top" secondItem="ByU-2W-UEk" secondAttribute="top" constant="77" id="MKN-XO-Bei"/>
                                     <constraint firstItem="qKT-yO-fGh" firstAttribute="leading" secondItem="ByU-2W-UEk" secondAttribute="leading" constant="22" id="OZs-3P-0um"/>
-                                    <constraint firstAttribute="bottom" secondItem="iDi-Pj-cdu" secondAttribute="bottom" constant="147" id="WkL-GS-CEq"/>
-                                    <constraint firstItem="iDi-Pj-cdu" firstAttribute="centerX" secondItem="ByU-2W-UEk" secondAttribute="centerX" id="ZVp-wh-0Wt"/>
                                     <constraint firstItem="jdG-gw-Eeh" firstAttribute="trailing" secondItem="y1l-Ss-Nta" secondAttribute="trailing" id="jvx-b8-Ige"/>
                                     <constraint firstItem="0ur-It-QYQ" firstAttribute="top" secondItem="ByU-2W-UEk" secondAttribute="top" constant="20" symbolic="YES" id="sf9-9q-H43"/>
-                                    <constraint firstAttribute="trailing" secondItem="iDi-Pj-cdu" secondAttribute="trailing" constant="8" id="vhP-52-56y"/>
                                     <constraint firstItem="yin-hn-wRF" firstAttribute="top" secondItem="ByU-2W-UEk" secondAttribute="top" constant="76" id="xXQ-mh-QrK"/>
                                 </constraints>
                             </scrollView>
@@ -129,11 +132,6 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Input" id="mjz-Pi-90f">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="GHM-ys-9s4">
-                            <connections>
-                                <action selector="gotoSettings:" destination="JrR-bA-UFn" id="HiM-Df-dNC"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Go" style="done" id="3bR-5O-q2g">
                             <connections>
                                 <action selector="clicked:" destination="JrR-bA-UFn" id="elY-Ik-LD0"/>
@@ -143,7 +141,6 @@
                     <connections>
                         <outlet property="choiceSeg" destination="0ur-It-QYQ" id="Tju-xI-2Eh"/>
                         <outlet property="encryptTextVeiw" destination="jdG-gw-Eeh" id="SNj-p7-puV"/>
-                        <segue destination="WlH-wl-hc2" kind="push" identifier="settings" id="804-9A-WCZ"/>
                         <segue destination="pMU-wD-U4Z" kind="push" identifier="Go" id="4KP-jJ-0Ui"/>
                     </connections>
                 </viewController>
@@ -237,11 +234,11 @@
             <objects>
                 <viewController title="InputViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WlH-wl-hc2" customClass="InputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lkK-7G-pf6">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rRh-9g-Y7x">
-                                <rect key="frame" x="54" y="47" width="101" height="31"/>
+                                <rect key="frame" x="54" y="117" width="101" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="YHz-Uz-d3m"/>
                                     <constraint firstAttribute="height" constant="31" id="jrX-ug-OAE"/>
@@ -250,13 +247,13 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Key" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHL-Nu-hTq">
-                                <rect key="frame" x="91" y="20" width="28" height="21"/>
+                                <rect key="frame" x="91" y="90" width="28" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZDn-bg-Foy">
-                                <rect key="frame" x="176" y="49" width="91" height="30"/>
+                                <rect key="frame" x="176" y="119" width="91" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="cLD-j6-L8u"/>
                                     <constraint firstAttribute="width" constant="91" id="jBq-LT-oj4"/>
@@ -269,7 +266,7 @@
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Passes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wh2-gv-OAO">
-                                <rect key="frame" x="195" y="20" width="53" height="21"/>
+                                <rect key="frame" x="195" y="90" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
