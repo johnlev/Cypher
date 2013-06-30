@@ -454,14 +454,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+<<<<<<< HEAD
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+=======
+>>>>>>> 0cecc5b74127739eb8969e640b505590f53b5cd4
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test/Cypher-Prefix.pch";
 				INFOPLIST_FILE = "Test/Cypher-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = Cypher;
 				PROVISIONING_PROFILE = "";
+<<<<<<< HEAD
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+=======
+>>>>>>> 0cecc5b74127739eb8969e640b505590f53b5cd4
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -471,14 +477,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+<<<<<<< HEAD
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+=======
+>>>>>>> 0cecc5b74127739eb8969e640b505590f53b5cd4
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Test/Cypher-Prefix.pch";
 				INFOPLIST_FILE = "Test/Cypher-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = Cypher;
 				PROVISIONING_PROFILE = "";
+<<<<<<< HEAD
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+=======
+>>>>>>> 0cecc5b74127739eb8969e640b505590f53b5cd4
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
