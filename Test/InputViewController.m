@@ -27,8 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *path = [(NSString *) [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"transfer.plist"];
 	// Do any additional setup after loading the view.
-    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"transfer" ofType:@"plist"]];
+    NSMutableDictionary* plistDict = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     
     keyTextFeild.text = [NSString stringWithFormat:@"%@",[plistDict objectForKey:@"key"]];
     passesSegmented.selectedSegmentIndex = [[plistDict objectForKey:@"passes"] intValue] -1;

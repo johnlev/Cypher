@@ -42,11 +42,7 @@
     NSLog(@"Key = %d", key);
     //encrypt
     printf("++++++++++++++++Starting+++++++++++++++++\n");
-    if (choice == 0) {
-        NSLog(@"Encrypting");
-    }
-    while (passed < passes && choice == 0) {
-        
+    while (passed <= passes) {
         //Create variables
         char *alphabet1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .?!:;'<>1234567890,/";
         int i = 0;
@@ -97,7 +93,7 @@
         i=0;
         
         //Translate
-        while (input[i] != '\0') {
+        while (input[i] != '\0' && choice == 0) {
             while (TRUE) {
                 if (input[i] == alphabet1[s]) {
                     //sets the encrypted letter to be the origanal letter
@@ -113,57 +109,8 @@
             i++;
             s=0;
         }
-        string = [NSString stringWithCharacters:output length:length];
-        passed++;
-    }
-    
-    //Decrypt
-    if (choice == 1) {
-        NSLog(@"De-encrypting");
-        passed = 0;
-    }
-    while (passed < passes && choice == 1) {
-        char *alphabet1 = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ .?!:;'<>1234567890,/";
-        int i = 0;
-        int s = 0;
-        int x = 0;
-        int z = 0;
-        int lengthAlpha = strlen(alphabet1);
-        char alphabet2[lengthAlpha];
-        for (unsigned int i = 0; i < length; i++) {
-            input[i] = [string characterAtIndex:i];
-        }
-        for (int b=0; b<[string length];b++) {
-            if (input[b] == '\n') {
-                input[b] = ' ';
-            }
-        }
-        x=0;
-        i = 0;
-        while (i < lengthAlpha) {
-            alphabet2[i] = 0;
-            i++;
-        }
         i=0;
-        srand(key);
-        while (alphabet1[x] != '\0') {
-            z = rand()%(lengthAlpha - 1) +1;
-            // Check the random place in the array for the presence of another char
-            while (i < lengthAlpha) {
-                if (alphabet1[z] == alphabet2[i]) {
-                    z = (z + 1) % lengthAlpha;
-                    i=-1;
-                }
-                i++;
-            }
-            i=0;
-            // Puts it in the new alphabet
-            //NSLog(@"%s", alphabet2);
-            alphabet2[x] = alphabet1[z];
-            x++;
-        }
-        i=0;
-        while (input[i] != '\0') {
+        while (input[i] != '\0' && choice == 1) {
             while (TRUE) {
                 if (input[i] == alphabet2[s]) {
                     //sets the encrypted letter to be the origanal letter
@@ -198,6 +145,7 @@
 
 -(IBAction)paster:(id)sender{
     encryptTextVeiw.text = [UIPasteboard generalPasteboard].string;
+    [self.view endEditing:YES];
 }
 -(IBAction)clear:(id)sender{
     encryptTextVeiw.text = NULL;
